@@ -14,14 +14,14 @@ public class Quotation {
 	private LocalDateTime plantingDate;
 	private Integer salaryQuantity;
 	private Integer rangeChosen;
-	private Integer insurancePremium;
+	private Double insurancePremium;
 	private Integer is;
 	private LocalDateTime effectiveDate;
 	private LocalDateTime createdDate;
 	private String summary;
 
 	public Quotation(int id, String name, String cpf, String email, String phone, String latitude, String longitude,
-			LocalDateTime plantingDate, Integer salaryQuantity, Integer rangeChosen, Integer insurancePremium,
+			LocalDateTime plantingDate, Integer salaryQuantity, Integer rangeChosen, Double insurancePremium,
 			Integer is, LocalDateTime effectiveDate, LocalDateTime createdDate, String summary) {
 		super();
 		this.id = id;
@@ -121,11 +121,11 @@ public class Quotation {
 		this.rangeChosen = rangeChosen;
 	}
 
-	public Integer getInsurancePremium() {
+	public Double getInsurancePremium() {
 		return insurancePremium;
 	}
 
-	public void setInsurancePremium(Integer insurancePremium) {
+	public void setInsurancePremium(Double insurancePremium) {
 		this.insurancePremium = insurancePremium;
 	}
 
@@ -159,6 +159,15 @@ public class Quotation {
 
 	public void setSummary(String summary) {
 		this.summary = summary;
+	}
+
+	@Override
+	public String toString() {
+		return "Quotation [id=" + id + ", name=" + name + ", cpf=" + cpf + ", email=" + email + ", phone=" + phone
+				+ ", latitude=" + latitude + ", longitude=" + longitude + ", plantingDate=" + plantingDate
+				+ ", salaryQuantity=" + salaryQuantity + ", rangeChosen=" + rangeChosen + ", insurancePremium="
+				+ insurancePremium + ", is=" + is + ", effectiveDate=" + effectiveDate + ", createdDate=" + createdDate
+				+ ", summary=" + summary + "]";
 	}
 
 }

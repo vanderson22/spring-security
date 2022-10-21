@@ -2,7 +2,7 @@ package org.springframework.hateoas.examples.model;
 
 public class Range {
 
-	private Long id;
+	private Integer id;
 	private Double insurancePremium;
 	private Long idSixtyPercentRange;
 	private Double insurancePremiumSixtyPercentRange;
@@ -12,7 +12,7 @@ public class Range {
 	public Range() {
 	}
 
-	public Range(Long id, Double insurancePremium, Long idSixtyPercentRange, Double insurancePremiumSixtyPercentRange,
+	public Range(Integer id, Double insurancePremium, Long idSixtyPercentRange, Double insurancePremiumSixtyPercentRange,
 			Long idFortyPercentRange, Double insurancePremiumFortyPercentRange) {
 		super();
 		this.id = id;
@@ -23,11 +23,11 @@ public class Range {
 		this.insurancePremiumFortyPercentRange = insurancePremiumFortyPercentRange;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

@@ -16,6 +16,7 @@
 package org.springframework.hateoas.examples;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
@@ -44,6 +45,8 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 class ParametricController {
 
+	private List<Range> collect;
+
 	public ParametricController() {
 		// TODO Auto-generated constructor stub
 	}
@@ -62,15 +65,28 @@ class ParametricController {
 
 	@PostMapping("/parametric/v1/quotation")
 	public Quotation getQuotation(@RequestHeader(name = "sessionId", required = false) SessionId b,
-			@RequestHeader(name = "x-api-key", required = true) String apiKey, @RequestBody String payload) {
+			@RequestHeader(name = "x-api-key", required = true) String apiKey, @RequestBody Quotation payload) {
 
 		System.out.println("api key : >>>>>> " + apiKey);
 		System.out.println("SessionId : >>>>>> " + b);
 		System.out.println();
 		System.out.println(payload);
 
-		return new Quotation(42, "nome", "cpf", "email", "phone", "lat", "long", LocalDateTime.now(), 3, 100, 500,
-				31413, LocalDateTime.now(), LocalDateTime.now(), "resumo");
+		Range[] r = new Range[] { new Range(100, 100D, 160L, 60D, 180L, 40D),
+				new Range(300, 200D, 360L, 120D, 380L, 80D), new Range(401, 300D, 460L, 180D, 480L, 120D) };
+
+		Range x = new Range();
+		for (int i = 0; i < r.length; i++) {
+			if (r[i].getId().equals(payload.getRangeChosen())) {
+				x = r[i];
+			}
+
+		}
+
+		return new Quotation(42, payload.getName(), payload.getCpf(), payload.getEmail(), payload.getPhone(),
+				payload.getLatitude(), payload.getLongitude(), LocalDateTime.now(), payload.getSalaryQuantity(),
+				payload.getRangeChosen(), x.getInsurancePremium(), payload.getIs(), LocalDateTime.now(),
+				LocalDateTime.now(), payload.toString());
 
 	}
 
@@ -83,13 +99,11 @@ class ParametricController {
 
 		System.out.println(localityId + "  " + qtdSalary + "  " + plantingDate);
 
-		return new InsuranceRange(localityId,
-				new Range[] { new Range(100L, 100D , 160L , 60D, 180L, 40D), 
-						new Range(300L, 200D , 360L , 120D, 380L, 80D), 
-						new Range(401L, 300D , 460L , 180D, 480L, 120D) });
+		return new InsuranceRange(localityId, new Range[] { new Range(100, 100D, 160L, 60D, 180L, 40D),
+				new Range(300, 200D, 360L, 120D, 380L, 80D), new Range(401, 300D, 460L, 180D, 480L, 120D) });
 	}
 
-	@GetMapping("/parametric/v1/salary-range")
+	@GetMapping("parametric/v1/salary-range")
 	public SalaryRange getRange(@RequestHeader(name = "sessionId", required = false) SessionId b,
 			@RequestHeader(name = "x-api-key", required = true) String apiKey,
 			@RequestParam(name = "longitude") String longitude, @RequestParam(name = "latitude") String latitude,
