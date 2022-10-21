@@ -72,8 +72,9 @@ class ParametricController {
 		System.out.println();
 		System.out.println(payload);
 
-		Range[] r = new Range[] { new Range(100, 100D, 160L, 60D, 180L, 40D),
-				new Range(300, 200D, 360L, 120D, 380L, 80D), new Range(401, 300D, 460L, 180D, 480L, 120D) };
+		Range[] r = new Range[] { new Range(100, 1200D, 100D, 160L, 1060D, 60D, 180L, 1060D, 40D),
+				new Range(300, 1300D, 200D, 360L, 1020D, 120D, 380L, 1080D, 80D),
+				new Range(400, 1400D, 200D, 460L, 1020D, 420D, 480L, 1040D, 80D) };
 
 		Range x = new Range();
 		for (int i = 0; i < r.length; i++) {
@@ -99,8 +100,10 @@ class ParametricController {
 
 		System.out.println(localityId + "  " + qtdSalary + "  " + plantingDate);
 
-		return new InsuranceRange(localityId, new Range[] { new Range(100, 100D, 160L, 60D, 180L, 40D),
-				new Range(300, 200D, 360L, 120D, 380L, 80D), new Range(401, 300D, 460L, 180D, 480L, 120D) });
+		return new InsuranceRange(localityId,
+				new Range[] { new Range(100, 1200D, 100D, 160L, 1060D, 60D, 180L, 1060D, 40D),
+						new Range(300, 1300D, 200D, 360L, 1020D, 120D, 380L, 1080D, 80D),
+						new Range(400, 1400D, 200D, 460L, 1020D, 420D, 480L, 1040D, 80D) });
 	}
 
 	@GetMapping("parametric/v1/salary-range")
