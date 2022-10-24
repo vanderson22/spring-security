@@ -5,7 +5,7 @@ public class SalaryRange {
 	private Integer localityId;
 	private Integer lowerSalaryLimit;
 	private Integer upperSalaryLimit;
-	private Double salaryValue = 1200d;
+	private Double salaryValue = 1212d;
 
 	public SalaryRange(Integer l, int i, int j) {
 		this.localityId = l;
