@@ -15,14 +15,14 @@ public class Quotation {
 	private Integer salaryQuantity;
 	private Integer rangeChosen;
 	private Double insurancePremium;
-	private Integer is;
+	private Double is;
 	private LocalDateTime effectiveDate;
 	private LocalDateTime createdDate;
 	private String summary;
 
 	public Quotation(int id, String name, String cpf, String email, String phone, String latitude, String longitude,
 			LocalDateTime plantingDate, Integer salaryQuantity, Integer rangeChosen, Double insurancePremium,
-			Integer is, LocalDateTime effectiveDate, LocalDateTime createdDate, String summary) {
+			Double is, LocalDateTime effectiveDate, LocalDateTime createdDate, String summary) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -129,11 +129,11 @@ public class Quotation {
 		this.insurancePremium = insurancePremium;
 	}
 
-	public Integer getIs() {
+	public Double getIs() {
 		return is;
 	}
 
-	public void setIs(Integer is) {
+	public void setIs(Double is) {
 		this.is = is;
 	}
 

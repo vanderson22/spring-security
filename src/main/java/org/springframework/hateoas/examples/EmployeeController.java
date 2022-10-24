@@ -86,7 +86,7 @@ class ParametricController {
 
 		return new Quotation(1, payload.getName(), payload.getCpf(), payload.getEmail(), payload.getPhone(),
 				payload.getLatitude(), payload.getLongitude(), LocalDateTime.now(), payload.getSalaryQuantity(),
-				payload.getRangeChosen(), x.getInsurancePremium(), payload.getIs(), LocalDateTime.now(),
+				payload.getRangeChosen(), x.getInsurancePremium(),	x.getIndenizacao() , LocalDateTime.now(),
 				LocalDateTime.now(), payload.toString());
 
 	}
