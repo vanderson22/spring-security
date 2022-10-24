@@ -72,9 +72,9 @@ class ParametricController {
 		System.out.println();
 		System.out.println(payload);
 
-		Range[] r = new Range[] { new Range(100, 1001D, 100D, 160L, 1060D, 60D, 180L, 1060D, 40D),
-				new Range(300, 1300D, 200D, 360L, 1020D, 120D, 380L, 1080D, 80D),
-				new Range(400, 1400D, 200D, 460L, 1020D, 420D, 480L, 1040D, 80D) };
+		Range[] r = new Range[] { new Range(121, 295.97D, 1212.00D, 160L, 1060D,  727.20D, 200L, 1060D, 484.80d),
+				new Range(160, 327.96D, 1212D, 200L, 727.20D, 727.20D, 239L, 1080D, 484.80D),
+				new Range(200, 379.59D, 1212D, 239L, 1020D, 727.20D, 278L, 1040D, 484.80D)  };
 
 		Range x = new Range();
 		for (int i = 0; i < r.length; i++) {
@@ -102,7 +102,7 @@ class ParametricController {
 
 		return new InsuranceRange(localityId,
 				new Range[] { new Range(121, 295.97D, 1212.00D, 160L, 1060D,  727.20D, 200L, 1060D, 484.80d),
-						new Range(160, 327.96D, 1212D, 200L, 727.20D, 120D, 239L, 1080D, 484.80D),
+						new Range(160, 327.96D, 1212D, 200L, 727.20D, 727.20D, 239L, 1080D, 484.80D),
 						new Range(200, 379.59D, 1212D, 239L, 1020D, 727.20D, 278L, 1040D, 484.80D) });
 	}
 
