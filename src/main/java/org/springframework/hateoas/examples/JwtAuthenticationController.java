@@ -43,13 +43,13 @@ public class JwtAuthenticationController {
 	}
 	
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public ResponseEntity createUser(@RequestBody JwtRequest authenticationRequest)
+	public ResponseEntity<?> createUser(@RequestBody JwtRequest authenticationRequest)
 			throws Exception {
 
 		authenticate(authenticationRequest.getEmail(), authenticationRequest.getPassword());
 
 		if(authenticationRequest.getEmail().contains("existe")) {
-			throw new RuntimeException("Uusuário informado já existe");
+			throw new RuntimeException("Usuário informado já existe");
 		}
 	 
 		return ResponseEntity.ok().build();
