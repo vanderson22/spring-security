@@ -23,6 +23,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author Greg Turnquist
  */
 @SpringBootApplication
+
 public class SpringHateoasBasicsApplication {
 
 	public static void main(String... args) {
