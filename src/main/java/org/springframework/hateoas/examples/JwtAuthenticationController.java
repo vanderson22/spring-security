@@ -7,7 +7,6 @@ import org.springframework.hateoas.examples.security.JwtTokenUtil;
 import org.springframework.hateoas.examples.security.model.JwtRequest;
 import org.springframework.hateoas.examples.security.model.JwtResponse;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -42,6 +41,20 @@ public class JwtAuthenticationController {
 		System.out.println("Aut");
 		return ResponseEntity.ok(new JwtResponse(token));
 	}
+	
+	@RequestMapping(value = "/create", method = RequestMethod.POST)
+	public ResponseEntity createUser(@RequestBody JwtRequest authenticationRequest)
+			throws Exception {
+
+		authenticate(authenticationRequest.getEmail(), authenticationRequest.getPassword());
+
+		if(authenticationRequest.getEmail().contains("existe")) {
+			throw new RuntimeException("Uusuário informado já existe");
+		}
+	 
+		return ResponseEntity.ok().build();
+	}
+	
 
 	private void authenticate(String username, String password) throws Exception {
 		Objects.requireNonNull(username);
